@@ -1,45 +1,112 @@
-[lqr_pid-1] [INFO] [1750072950.101370698] [lqr_pid_node]: LQR idx=63, e=-0.284, th_e=3.132, psi=-1.566, yaw=1.566
-[lqr_pid-1] [INFO] [1750072950.123777757] [lqr_pid_node]: LQR idx=63, e=-0.286, th_e=3.132, psi=-1.566, yaw=1.566
-[lqr_pid-1] [INFO] [1750072950.151443000] [lqr_pid_node]: LQR idx=63, e=-0.278, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.173957491] [lqr_pid_node]: LQR idx=63, e=-0.292, th_e=3.135, psi=-1.566, yaw=1.568
-[lqr_pid-1] [INFO] [1750072950.199638212] [lqr_pid_node]: LQR idx=63, e=-0.296, th_e=3.137, psi=-1.566, yaw=1.571
-[lqr_pid-1] [INFO] [1750072950.225369647] [lqr_pid_node]: LQR idx=63, e=-0.286, th_e=3.135, psi=-1.566, yaw=1.568
-[lqr_pid-1] [INFO] [1750072950.250337649] [lqr_pid_node]: LQR idx=63, e=-0.299, th_e=3.138, psi=-1.566, yaw=1.571
-[lqr_pid-1] [INFO] [1750072950.276898069] [lqr_pid_node]: LQR idx=62, e=0.294, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.300442134] [lqr_pid_node]: LQR idx=62, e=0.291, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.325857492] [lqr_pid_node]: LQR idx=63, e=-0.285, th_e=3.135, psi=-1.566, yaw=1.569
-[lqr_pid-1] [INFO] [1750072950.348950339] [lqr_pid_node]: LQR idx=63, e=0.276, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.376709725] [lqr_pid_node]: LQR idx=63, e=0.279, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.398731726] [lqr_pid_node]: LQR idx=63, e=0.282, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.423910519] [lqr_pid_node]: LQR idx=63, e=0.292, th_e=3.136, psi=-1.566, yaw=1.569
-[lqr_pid-1] [INFO] [1750072950.451935291] [lqr_pid_node]: LQR idx=63, e=0.296, th_e=3.134, psi=-1.566, yaw=1.568
-[lqr_pid-1] [INFO] [1750072950.473877740] [lqr_pid_node]: LQR idx=63, e=0.299, th_e=3.133, psi=-1.566, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.500812090] [lqr_pid_node]: LQR idx=64, e=-0.293, th_e=3.133, psi=-1.567, yaw=1.566
-[lqr_pid-1] [INFO] [1750072950.523932632] [lqr_pid_node]: LQR idx=64, e=-0.288, th_e=3.134, psi=-1.567, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.551133011] [lqr_pid_node]: LQR idx=64, e=-0.279, th_e=3.133, psi=-1.567, yaw=1.566
-[lqr_pid-1] [INFO] [1750072950.573851904] [lqr_pid_node]: LQR idx=64, e=-0.280, th_e=3.132, psi=-1.567, yaw=1.565
-[lqr_pid-1] [INFO] [1750072950.600443010] [lqr_pid_node]: LQR idx=64, e=-0.288, th_e=3.136, psi=-1.567, yaw=1.569
-[lqr_pid-1] [INFO] [1750072950.623853635] [lqr_pid_node]: LQR idx=64, e=-0.283, th_e=3.133, psi=-1.567, yaw=1.566
-[lqr_pid-1] [INFO] [1750072950.650930515] [lqr_pid_node]: LQR idx=64, e=-0.277, th_e=3.136, psi=-1.567, yaw=1.569
-[lqr_pid-1] [INFO] [1750072950.675903496] [lqr_pid_node]: LQR idx=64, e=-0.286, th_e=3.134, psi=-1.567, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.699000036] [lqr_pid_node]: LQR idx=64, e=-0.276, th_e=3.136, psi=-1.567, yaw=1.569
-[lqr_pid-1] [INFO] [1750072950.728113318] [lqr_pid_node]: LQR idx=64, e=-0.280, th_e=3.135, psi=-1.567, yaw=1.568
-[lqr_pid-1] [INFO] [1750072950.749111601] [lqr_pid_node]: LQR idx=64, e=-0.281, th_e=3.134, psi=-1.567, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.774890998] [lqr_pid_node]: LQR idx=64, e=-0.272, th_e=3.134, psi=-1.567, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.798752012] [lqr_pid_node]: LQR idx=64, e=-0.276, th_e=3.134, psi=-1.567, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.824672382] [lqr_pid_node]: LQR idx=64, e=0.270, th_e=3.132, psi=-1.567, yaw=1.565
-[lqr_pid-1] [INFO] [1750072950.851840456] [lqr_pid_node]: LQR idx=64, e=0.269, th_e=3.132, psi=-1.567, yaw=1.565
-[lqr_pid-1] [INFO] [1750072950.875569607] [lqr_pid_node]: LQR idx=64, e=0.272, th_e=3.132, psi=-1.567, yaw=1.565
-[lqr_pid-1] [INFO] [1750072950.901020186] [lqr_pid_node]: LQR idx=64, e=0.276, th_e=3.131, psi=-1.567, yaw=1.564
-[lqr_pid-1] [INFO] [1750072950.923926095] [lqr_pid_node]: LQR idx=64, e=0.292, th_e=3.135, psi=-1.567, yaw=1.568
-[lqr_pid-1] [INFO] [1750072950.952633973] [lqr_pid_node]: LQR idx=65, e=-0.295, th_e=3.134, psi=-1.568, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.973936469] [lqr_pid_node]: LQR idx=65, e=-0.283, th_e=3.135, psi=-1.568, yaw=1.567
-[lqr_pid-1] [INFO] [1750072950.999913925] [lqr_pid_node]: LQR idx=65, e=-0.271, th_e=3.133, psi=-1.568, yaw=1.565
-[lqr_pid-1] [INFO] [1750072951.025203571] [lqr_pid_node]: LQR idx=65, e=-0.277, th_e=3.135, psi=-1.568, yaw=1.567
-[lqr_pid-1] [INFO] [1750072951.050280489] [lqr_pid_node]: LQR idx=65, e=0.275, th_e=3.134, psi=-1.568, yaw=1.566
-[lqr_pid-1] [INFO] [1750072951.076756334] [lqr_pid_node]: LQR idx=65, e=0.281, th_e=3.137, psi=-1.568, yaw=1.569
-[lqr_pid-1] [INFO] [1750072951.099895910] [lqr_pid_node]: LQR idx=65, e=0.300, th_e=3.137, psi=-1.568, yaw=1.569
-[lqr_pid-1] [INFO] [1750072951.126023103] [lqr_pid_node]: LQR idx=66, e=-0.292, th_e=3.136, psi=-1.568, yaw=1.568
-[lqr_pid-1] [INFO] [1750072951.148960173] [lqr_pid_node]: LQR idx=66, e=-0.280, th_e=3.136, psi=-1.568, yaw=1.568
-[lqr_pid-1] [INFO] [1750072951.176628687] [lqr_pid_node]: LQR idx=66, e=-0.283, th_e=3.136, psi=-1.568, yaw=1.567
-[lqr_pid-1] [INFO] [1750072951.198973975] [lqr_pid_node]: LQR idx=66, e=-0.282, th_e=3.136, psi=-1.568, yaw=1.568
+void LQRPID::odom_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg) {
+    geometry_msgs::msg::TransformStamped tf;
+    try {
+        tf = tf_buffer_->lookupTransform(global_refFrame, msg->header.frame_id, tf2::TimePointZero);
+    } catch (tf2::TransformException &ex) {
+        RCLCPP_WARN(this->get_logger(), "TF lookup failed: %s", ex.what());
+        return;
+    }
+
+    // 위치 변환
+    const auto& t = tf.transform.translation;
+    const auto& r = tf.transform.rotation;
+    tf2::Vector3 translation(t.x, t.y, t.z);
+    tf2::Quaternion rotation(r.x, r.y, r.z, r.w);
+    tf2::Transform tf2_transform(rotation, translation);
+
+    tf2::Vector3 pos_orig(msg->pose.pose.position.x,
+                          msg->pose.pose.position.y,
+                          msg->pose.pose.position.z);
+    tf2::Vector3 pos_transformed = tf2_transform * pos_orig;
+
+    double x = pos_transformed.x();
+    double y = pos_transformed.y();
+
+    // orientation 그대로 사용 (base_link 기준)
+    const auto& q = msg->pose.pose.orientation;
+    tf2::Quaternion q_orig(q.x, q.y, q.z, q.w);
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q_orig).getRPY(roll, pitch, yaw);
+
+    double velocity = msg->twist.twist.linear.x;
+
+    // ✅ 차량이 반대 방향을 향하고 있다면 yaw 보정
+    if (velocity < 0.0) {
+        yaw += M_PI;
+        yaw = pi2pi(yaw);
+    }
+
+    publish_message(x, y, yaw, velocity);
+}
+
+
+
+
+
+
+SteeringState LQRPID::lqr_steering(double x, double y, double yaw, double v) {
+    auto [ind, e] = find_nearest_point(
+        waypoints.x_m, waypoints.y_m, waypoints.psi_rad, x, y);
+
+    // ✅ 속도 너무 작으면 제어하지 않음
+    if (std::abs(v) < 0.1) {
+        SteeringState s;
+        s.steering_angle = 0.0;
+        s.index = ind;
+        s.lateral_error = e;
+        s.yaw_error = 0.0;
+        return s;
+    }
+
+    double k = waypoints.kappa_radpm[ind];
+    double th_e = pi2pi(yaw - waypoints.psi_rad[ind]);
+
+    // 로그로 확인
+    RCLCPP_INFO(this->get_logger(), "LQR idx=%d, e=%.3f, th_e=%.3f, psi=%.3f, yaw=%.3f",
+                ind, e, th_e, waypoints.psi_rad[ind], yaw);
+
+    // 진행 방향 보정 (v > 0 정방향, v < 0 역방향)
+    double direction = (v >= 0) ? 1.0 : -1.0;
+
+    Eigen::Matrix4d A = Eigen::Matrix4d::Zero();
+    A(0,0) = 1.0; A(0,1) = dt;
+    A(1,2) = std::abs(v);  // 항상 양수
+    A(2,2) = 1.0; A(2,3) = dt;
+    A(3,3) = 1.0;
+
+    Eigen::Matrix<double,4,1> B = Eigen::Matrix<double,4,1>::Zero();
+    B(3,0) = direction * std::abs(v) / wheelbase;
+
+    Eigen::Matrix4d Q = Eigen::Matrix4d::Zero();
+    Q(0,0) = lqr_q_y;
+    Q(1,1) = 1.0;
+    Q(2,2) = lqr_q_yaw;
+    Q(3,3) = 1.0;
+
+    Eigen::Matrix<double,1,1> R;
+    R(0,0) = lqr_r_steer;
+
+    Eigen::Matrix<double,1,4> K = dlqr(A, B, Q, R);
+
+    Eigen::Vector4d x_err;
+    x_err << e,
+             (e - prev_lateral_error_) / dt,
+             th_e,
+             (th_e - prev_yaw_error_) / dt;
+
+    x_err *= direction;
+
+    double ff = std::atan2(wheelbase * k, 1.0);
+    double fb = pi2pi(- (K * x_err)(0));
+    double delta = std::clamp(ff + fb, -max_steer_rad, max_steer_rad);
+
+    prev_lateral_error_ = e;
+    prev_yaw_error_ = th_e;
+
+    SteeringState state;
+    state.steering_angle = delta;
+    state.index = ind;
+    state.lateral_error = e;
+    state.yaw_error = th_e;
+    return state;
+}
