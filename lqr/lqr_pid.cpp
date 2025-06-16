@@ -1,24 +1,44 @@
-void PurePursuit::transformandinterp_waypoint() {  // pass old waypoint here
-    // initialise vectors
-    waypoints.lookahead_point_world << waypoints.X[waypoints.index], waypoints.Y[waypoints.index], 0.0;
-    waypoints.current_point_world << waypoints.X[waypoints.velocity_index], waypoints.Y[waypoints.velocity_index], 0.0;
+void LQRPID::odom_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg) {
+    // 현재 위치를 pose_in (map 기준)으로 정의
+    Eigen::Vector3d position_world(
+        msg->pose.pose.position.x,
+        msg->pose.pose.position.y,
+        msg->pose.pose.position.z);
 
-    visualize_lookahead_point(waypoints.lookahead_point_world);
-    visualize_current_point(waypoints.current_point_world);
-
-    // look up transformation at that instant from tf_buffer_
+    // TF 조회: map → base_link
     geometry_msgs::msg::TransformStamped transformStamped;
-
     try {
-        // Get the transform from the base_link reference to world reference frame
-        transformStamped = tf_buffer_->lookupTransform(car_refFrame, global_refFrame, tf2::TimePointZero);
+        transformStamped = tf_buffer_->lookupTransform(
+            car_refFrame, global_refFrame, tf2::TimePointZero);  // "base_link", "map"
     } catch (tf2::TransformException &ex) {
-        RCLCPP_INFO(this->get_logger(), "Could not transform. Error: %s", ex.what());
+        RCLCPP_WARN(this->get_logger(), "Transform lookup failed: %s", ex.what());
+        return;
     }
 
-    // transform points (rotate first and then translate)
-    Eigen::Vector3d translation_v(transformStamped.transform.translation.x, transformStamped.transform.translation.y, transformStamped.transform.translation.z);
-    quat_to_rot(transformStamped.transform.rotation.w, transformStamped.transform.rotation.x, transformStamped.transform.rotation.y, transformStamped.transform.rotation.z);
+    // 회전 행렬 (Quaternion → Eigen)
+    Eigen::Quaterniond q(
+        transformStamped.transform.rotation.w,
+        transformStamped.transform.rotation.x,
+        transformStamped.transform.rotation.y,
+        transformStamped.transform.rotation.z);
+    Eigen::Matrix3d rotation = q.toRotationMatrix();
 
-    waypoints.lookahead_point_car = (rotation_m * waypoints.lookahead_point_world) + translation_v;
+    // translation 벡터
+    Eigen::Vector3d translation(
+        transformStamped.transform.translation.x,
+        transformStamped.transform.translation.y,
+        transformStamped.transform.translation.z);
+
+    // 좌표 변환: pose_world → pose_car 기준
+    Eigen::Vector3d position_car = rotation * position_world + translation;
+
+    // yaw 추출
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    // 속도 그대로 사용
+    double velocity = msg->twist.twist.linear.x;
+
+    // publish
+    publish_message(position_car.x(), position_car.y(), yaw, velocity);
 }
