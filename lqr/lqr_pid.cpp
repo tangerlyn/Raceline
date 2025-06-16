@@ -1,27 +1,40 @@
-[lqr_pid-1] [INFO] [1750074478.278983394] [lqr_pid_node]: LQR idx=216, e=1.227, th_e=-0.561, psi=1.567, yaw=1.006
-[lqr_pid-1] [INFO] [1750074478.284975851] [lqr_pid_node]: LQR idx=216, e=1.324, th_e=-0.645, psi=1.567, yaw=0.922
-[lqr_pid-1] [INFO] [1750074478.308143274] [lqr_pid_node]: LQR idx=217, e=1.273, th_e=-0.505, psi=1.566, yaw=1.061
-[lqr_pid-1] [INFO] [1750074478.327236263] [lqr_pid_node]: LQR idx=218, e=-1.332, th_e=-0.673, psi=1.566, yaw=0.892
-[lqr_pid-1] [INFO] [1750074478.353615501] [lqr_pid_node]: LQR idx=218, e=1.247, th_e=-0.621, psi=1.566, yaw=0.944
-[lqr_pid-1] [INFO] [1750074478.376645797] [lqr_pid_node]: LQR idx=219, e=1.305, th_e=-0.554, psi=1.565, yaw=1.011
-[lqr_pid-1] [INFO] [1750074478.403383508] [lqr_pid_node]: LQR idx=220, e=-1.238, th_e=-0.427, psi=1.564, yaw=1.137
-[lqr_pid-1] [INFO] [1750074478.429022215] [lqr_pid_node]: LQR idx=220, e=-1.140, th_e=-0.096, psi=1.564, yaw=1.467
-[lqr_pid-1] [INFO] [1750074478.467827375] [lqr_pid_node]: LQR idx=221, e=1.209, th_e=-0.263, psi=1.563, yaw=1.299
-[lqr_pid-1] [INFO] [1750074478.490170361] [lqr_pid_node]: LQR idx=221, e=1.171, th_e=-0.133, psi=1.563, yaw=1.430
-[lqr_pid-1] [INFO] [1750074478.526370517] [lqr_pid_node]: LQR idx=222, e=-1.257, th_e=-0.412, psi=1.562, yaw=1.150
-[lqr_pid-1] [INFO] [1750074478.544111796] [lqr_pid_node]: LQR idx=222, e=-1.243, th_e=-0.373, psi=1.562, yaw=1.189
-[lqr_pid-1] [INFO] [1750074478.558205067] [lqr_pid_node]: LQR idx=222, e=1.191, th_e=-0.370, psi=1.562, yaw=1.192
-[lqr_pid-1] [INFO] [1750074478.577744706] [lqr_pid_node]: LQR idx=223, e=-1.317, th_e=-0.645, psi=1.561, yaw=0.915
-[lqr_pid-1] [INFO] [1750074478.607121851] [lqr_pid_node]: LQR idx=224, e=-1.362, th_e=-0.816, psi=1.560, yaw=0.744
-[lqr_pid-1] [INFO] [1750074478.635498741] [lqr_pid_node]: LQR idx=224, e=1.353, th_e=-0.777, psi=1.560, yaw=0.783
-[lqr_pid-1] [INFO] [1750074478.667190125] [lqr_pid_node]: LQR idx=225, e=-1.247, th_e=-0.468, psi=1.559, yaw=1.091
-[lqr_pid-1] [INFO] [1750074478.694119396] [lqr_pid_node]: LQR idx=225, e=-1.234, th_e=-0.380, psi=1.559, yaw=1.179
-[lqr_pid-1] [INFO] [1750074478.706856246] [lqr_pid_node]: LQR idx=226, e=-1.276, th_e=-0.565, psi=1.558, yaw=0.993
-[lqr_pid-1] [INFO] [1750074478.732969659] [lqr_pid_node]: LQR idx=226, e=1.267, th_e=-0.534, psi=1.558, yaw=1.024
-[lqr_pid-1] [INFO] [1750074478.752400351] [lqr_pid_node]: LQR idx=227, e=1.246, th_e=-0.427, psi=1.558, yaw=1.131
-[lqr_pid-1] [INFO] [1750074478.777089128] [lqr_pid_node]: LQR idx=227, e=1.256, th_e=-0.461, psi=1.558, yaw=1.097
-[lqr_pid-1] [INFO] [1750074478.818291722] [lqr_pid_node]: LQR idx=227, e=1.247, th_e=-0.457, psi=1.558, yaw=1.101
-[lqr_pid-1] [INFO] [1750074478.840765620] [lqr_pid_node]: LQR idx=228, e=-1.278, th_e=-0.579, psi=1.557, yaw=0.978
-[lqr_pid-1] [INFO] [1750074478.873166553] [lqr_pid_node]: LQR idx=229, e=-1.344, th_e=-0.879, psi=1.557, yaw=0.678
-[lqr_pid-1] [INFO] [1750074478.884000860] [lqr_pid_node]: LQR idx=229, e=1.270, th_e=-0.882, psi=1.557, yaw=0.675
-[lqr_pid-1] [INFO] [1750074478.910973940] [lqr_pid_node]: LQR idx=229, e=-1.167, th_e=-0.263, psi=1.557, yaw=1.294
+std::pair<int, double> LQRPID::find_nearest_point(
+    const std::vector<double>& cx,
+    const std::vector<double>& cy,
+    const std::vector<double>& cyaw,
+    double x, double y)
+{
+    int nearest_ind = 0;
+    double min_d2 = std::numeric_limits<double>::infinity();
+
+    // 1. 가장 가까운 인덱스 찾기
+    for (std::size_t i = 0; i < cx.size(); ++i) {
+        double dx = cx[i] - x;
+        double dy = cy[i] - y;
+        double d2 = dx * dx + dy * dy;
+        if (d2 < min_d2) {
+            min_d2 = d2;
+            nearest_ind = i;
+        }
+    }
+
+    // 2. lateral error 계산 (최근접 기준)
+    double e = std::sqrt(min_d2);
+    double angle = pi2pi(cyaw[nearest_ind] - std::atan2(cy[nearest_ind] - y, cx[nearest_ind] - x));
+    if (angle < 0.0) e = -e;
+
+    // 3. preview horizon 적용
+    int preview_horizon = 15;  // 실험적으로 조정: 10 ~ 20
+    int target_ind = std::min(nearest_ind + preview_horizon, static_cast<int>(cx.size() - 1));
+
+    return {target_ind, e};  // target point index와 최근접 기준 lateral error 반환
+}
+
+
+
+auto [ind, e] = find_nearest_point(
+    waypoints.x_m, waypoints.y_m, waypoints.psi_rad, x, y);
+
+double psi = waypoints.psi_rad[ind];
+double k = waypoints.kappa_radpm[ind];
+double th_e = pi2pi(yaw - psi);
