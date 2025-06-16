@@ -133,3 +133,62 @@ SteeringState LQRPID::lqr_steering(double x, double y, double yaw, double v) {
 // prev_idx는 class의 멤버 변수로 선언 필요:
 // private:
 //     int prev_idx;
+
+
+
+std::pair<int, double> LQRPID::find_nearest_point(
+    const std::vector<double>& cx,
+    const std::vector<double>& cy,
+    const std::vector<double>& cyaw,
+    double x, double y)
+{
+    int local_ind = prev_idx;
+    double min_d2 = std::numeric_limits<double>::infinity();
+
+    int start = std::max(0, prev_idx);
+    int end = std::min((int)cx.size(), prev_idx + n_ind_search);
+
+    // Step 1: Local search
+    for (int i = start; i < end; ++i) {
+        double dx = cx[i] - x;
+        double dy = cy[i] - y;
+        double d2 = dx * dx + dy * dy;
+        if (d2 < min_d2) {
+            min_d2 = d2;
+            local_ind = i;
+        }
+    }
+
+    double e = std::sqrt(min_d2);
+    double angle = pi2pi(cyaw[local_ind] - std::atan2(cy[local_ind] - y, cx[local_ind] - x));
+    if (angle < 0.0) e = -e;
+
+    // Step 2: Fallback to global search if too far
+    if (std::abs(e) > 3.0) {
+        int global_ind = 0;
+        double global_min_d2 = std::numeric_limits<double>::infinity();
+
+        for (std::size_t i = 0; i < cx.size(); ++i) {
+            double dx = cx[i] - x;
+            double dy = cy[i] - y;
+            double d2 = dx * dx + dy * dy;
+            if (d2 < global_min_d2) {
+                global_min_d2 = d2;
+                global_ind = i;
+            }
+        }
+
+        double global_e = std::sqrt(global_min_d2);
+        double global_angle = pi2pi(cyaw[global_ind] - std::atan2(cy[global_ind] - y, cx[global_ind] - x));
+        if (global_angle < 0.0) global_e = -global_e;
+
+        RCLCPP_WARN(this->get_logger(), "Global search fallback used");
+
+        prev_idx = global_ind;
+        return {global_ind, global_e};
+    }
+
+    prev_idx = local_ind;
+    return {local_ind, e};
+}
+
