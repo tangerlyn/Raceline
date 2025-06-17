@@ -339,6 +339,7 @@ double PurePursuit::get_velocity(double steering_angle) {
             velocity = 2.0 * velocity_percentage;
         }
     }
+    velocity = std::min(velocity, 6.0);
 
     return velocity;
 }
